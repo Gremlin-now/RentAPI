@@ -1,6 +1,8 @@
 using RentAPI.Migrations;
 using FluentMigrator.Runner;
 using System.Reflection;
+using RentAPI.Repositories.Interfaces;
+using RentAPI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IAccountRepository, AccountRepository>();
 builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 builder.Services.AddAuthorization();
 

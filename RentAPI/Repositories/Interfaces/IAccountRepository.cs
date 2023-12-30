@@ -4,9 +4,9 @@ namespace RentAPI.Repositories.Interfaces
 {
     public interface IAccountRepository
     {
-        Task<bool> CheckAccount(string accountName);
-        Task<bool> CheckRefreshTokenn(string token);
+        Task<bool> CheckUser(string username);
+        Task<Account> GetAccountByPassword(string username, string password);
         Task<Account> GetAccountByRefreshToken(string token);
-        Task CreateAccount(Account account);
+        void CreateAccount(Account account);
     }
 }

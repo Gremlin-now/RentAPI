@@ -27,10 +27,6 @@ namespace RentAPI.Services
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256));
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-        public async Task<bool> CheckAccount(string username)
-        {
-            return await _accountRepository.CheckAccount(username);
-        }
         public async Task<AuthTokenPair> ExpireToken(string token)
         {
             var account = await _accountRepository.GetAccountByRefreshToken(token);

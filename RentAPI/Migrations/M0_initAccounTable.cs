@@ -9,7 +9,7 @@ namespace RentAPI.Migrations
             Create.Table("accounts")
                 .WithColumn("id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("password").AsString(255).NotNullable().WithDefaultValue("")
-                .WithColumn("balance").AsInt64().NotNullable().WithDefaultValue(0)
+                .WithColumn("ballance").AsInt64().NotNullable().WithDefaultValue(0)
                 .WithColumn("role").AsString(255).NotNullable().WithDefaultValue("client")
                 .WithColumn("refresh_token").AsString(255).NotNullable().WithDefaultValue("");
         }
